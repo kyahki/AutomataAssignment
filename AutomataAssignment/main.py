@@ -12,7 +12,7 @@ pygame.display.set_caption("Automata Assignment")
 clock = pygame.time.Clock()
 FPS = 60
 
-bg_image = pygame.image.load("AutomataAssignment/assets/images/background.jpg").convert_alpha()
+bg_image = pygame.image.load("AutomataAssignment/assets/images/backgroundimage.jpg").convert_alpha()
 
 
 def draw_bg():
