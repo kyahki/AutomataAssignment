@@ -8,6 +8,7 @@ class Mover():
         self.attacking = False
         self.attack_type = 0
         self.action = 0
+        self.health = 100
         
         
         self.image_idle = pygame.image.load("AutomataAssignment/assets/images/move1.jpg").convert_alpha()
@@ -22,7 +23,7 @@ class Mover():
         SPEED = 10
         dx = 0
         dy = 0
-        GRAVITY = 2
+        GRAVITY = 1.5
         key = pygame.key.get_pressed()
 
         
@@ -38,7 +39,7 @@ class Mover():
             dx = SPEED
             self.current_image = self.image_move
         if key[pygame.K_w] and not self.jump:
-            self.vel_y = -30
+            self.vel_y = -35
             self.jump = True
             self.current_image = self.image_jump
         if key[pygame.K_r] or key[pygame.K_t]:
@@ -68,7 +69,7 @@ class Mover():
     def attack(self, surface, target):
         attacking_rect = pygame.Rect(self.rect.centerx, self.rect.y, 2 * self.rect.width, self.rect.height)
         if attacking_rect.colliderect(target.rect):
-            print("Hit")
+            target.health -=10
         pygame.draw.rect(surface, (0, 255, 0), attacking_rect)
 
     def draw(self, surface):
